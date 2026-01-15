@@ -162,7 +162,7 @@ function AboutPage() {
           SolanaView was developed as part of a research project and final thesis focused on
           deep learning forecasting for cryptocurrency price prediction.
           <br /> <br />
-          This system demonstrates the implementation of a hybrid CNN-BiLSTM model to analyze historical
+          This system demonstrates the implementation of BiLSTM model to analyze historical
           Solana (SOL) data and forecast future movement trends.  
           It serves both academic research purposes and practical insights for real-world crypto analysis.
         </p>

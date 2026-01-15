@@ -6,10 +6,6 @@ import solbg2 from "../assets/solbg2.png";
 function LandingPage() {
   return (
     <div style={{ width: "100%", minHeight: "100vh" }}>
-      
-      {/* ===========================
-          HERO SECTION (BACKGROUND SOLANA)
-          =========================== */}
       <section
         style={{
           minHeight: "100vh",
@@ -46,7 +42,7 @@ function LandingPage() {
             marginBottom: "25px",
           }}
         >
-          Real-time Solana forecasting using a CNN-BiLSTM deep learning model.
+          Real-time Solana forecasting using a BiLSTM deep learning model.
         </p>
 
         <SolanaPrice />

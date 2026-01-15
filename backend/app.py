@@ -29,14 +29,14 @@ app.add_middleware(
 # ==========================================================
 # Konfigurasi (UNIVARIATE)
 # ==========================================================
-MODEL_PATH = "artifacts/sol_cnn_bilstm_univariate.keras"
-SCALER_PATH = "artifacts/close_scaler.pkl"
+MODEL_PATH = "artifacts/bilstm_univariate.keras"
+SCALER_PATH = "artifacts/scaler.pkl"
 FEATURES: List[str] = ["Close"]
 TARGET: str = "Close"
-WINDOW: int = 60
+WINDOW: int = 48
 
 # ==========================================================
-# Load Model & Scaler (sekali saja)
+# Load Model & Scaler
 # ==========================================================
 print("[Startup] Loading model and scaler...")
 model = keras.models.load_model(

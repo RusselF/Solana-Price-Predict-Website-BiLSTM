@@ -14,7 +14,8 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-import trainLossImage from "../assets/trainloss.png";
+import trainLossImage from "../assets/trainlossbilstm.png";
+import testSetImage from "../assets/testset.png";
 
 const FAST_API_URL = "http://localhost:8001";
 
@@ -227,18 +228,21 @@ export default function AdminPage() {
 {`
 Layer (type)                Output Shape        Param #
 --------------------------------------------------------
-conv1 (Conv1D)              (None, 60, 128)     512
-pool1 (MaxPooling1D)        (None, 30, 128)     0
-bilstm_1 (Bidirectional)    (None, 30, 300)     334,800
-dropout                     (None, 30, 300)     0
-bilstm_2 (Bidirectional)    (None, 100)         140,400
+bilstm_1 (Bidirectional)    (None, 48, 300)     182,400
+dropout_1 (Dropout)         (None, 48, 300)     0
+bilstm_2 (Bidirectional)    (None, 150)         140,400
 dense_64 (Dense)            (None, 64)          6,464
 dense_32 (Dense)            (None, 32)          2,080
 out (Dense)                 (None, 1)           33
 --------------------------------------------------------
-Total params: 484,289
-Trainable params: 484,289
+Total params: 331,377
+Trainable params: 331,377
 Non-trainable params: 0
+
+Model Type : BiLSTM (Univariate)
+Input      : Close Price
+Window Size: 48 timesteps
+Output     : 1-step ahead forecast
 `}
               </pre>
             </section>
@@ -249,6 +253,14 @@ Non-trainable params: 0
             <section className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm">
               <h2 className="text-2xl font-bold mb-4">Training & Validation Loss</h2>
               <img src={trainLossImage} className="rounded-xl shadow-md" alt="Train Loss Chart" />
+            </section>
+
+            {/* ========================= */}
+            {/* 4. TEST - ACTUAL VS PREDICTED */}
+            {/* ========================= */}
+            <section className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm">
+              <h2 className="text-2xl font-bold mb-4">Test - Actual VS Predicted Chart</h2>
+              <img src={testSetImage} className="rounded-xl shadow-md" alt="Test Set Chart" />
             </section>
 
             {/* ========================= */}

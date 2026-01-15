@@ -21,7 +21,7 @@ function MonthlyPrediction() {
         setTimeout(() => {
           // Ambil 30-60 hari terakhir dari history sebagai context
           const fullHistory = res.data.history || [];
-          const contextHistory = fullHistory.slice(-60); // 60 hari terakhir
+          const contextHistory = fullHistory.slice(-48); // 48 hari terakhir
           
           // Untuk eval, ambil 30 hari terakhir saja (overlap dengan window)
           const fullEval = res.data.eval || [];
@@ -199,7 +199,7 @@ function MonthlyPrediction() {
         <div>
           <p style={{ margin: "0 0 5px 0", color: colors.text, fontSize: "36px", fontWeight: "800" }}>📆 Prediksi Bulanan</p>
           <p style={{ margin: 0, color: colors.textSecondary, fontSize: "18px" }}>
-            Prediksi 30 hari ke depan berdasarkan window 60 hari
+            Prediksi 30 hari ke depan menggunakan window 48 hari
           </p>
         </div>
         <div style={{
@@ -234,7 +234,7 @@ function MonthlyPrediction() {
             {data.history?.length || 0} hari
           </div>
           <div style={{ fontSize: "16px", color: colors.warningText, marginTop: 3, opacity: 0.8 }}>
-            (30-60 hari terakhir)
+            (48 hari terakhir)
           </div>
         </div>
 
@@ -598,10 +598,10 @@ function MonthlyPrediction() {
             </div>
 
             <ul style={{ margin: 0, paddingLeft: 20 }}>
-              <li><b>Window 60 hari</b>: model membaca 60 hari historis</li>
-              <li><b>30 hari evaluasi</b>: cek akurasi model</li>
-              <li><b>30 hari prediksi</b>: proyeksi masa depan</li>
-              <li><b>CNN-BiLSTM</b>: menangkap pola temporal</li>
+              <li><b>Window 48 hari</b>: model membaca 48 hari historis</li>
+              <li><b>Recursive forecasting</b>: prediksi dilakukan satu hari ke depan secara berulang</li>
+              <li><b>30 hari prediksi</b>: hasil estimasi jangka pendek</li>
+              <li><b>BiLSTM</b>: menangkap dependensi temporal dua arah</li>
             </ul>
           </div>
 
